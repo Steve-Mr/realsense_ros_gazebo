@@ -283,11 +283,18 @@
       <link name="${sensor_name}_depth" />
       <link name="${sensor_name}_ired1" />
       <link name="${sensor_name}_ired2" />
+      <link name="${sensor_name}_color_optical_frame" />
 
       <joint name="${sensor_name}_color_joint" type="fixed">
           <parent link="${sensor_name}_R200_camera" />
           <child link="${sensor_name}_color" />
           <origin xyz="0 -0.046 0.004" rpy="${pi/2} ${pi} ${pi/2}"/>
+      </joint>
+
+      <joint name="${sensor_name}_color_optical_joint" type="fixed">
+          <parent link="${sensor_name}_color" />
+          <child link="${sensor_name}_color_optical_frame" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
       </joint>
 
       <joint name="${sensor_name}_depth_joint" type="fixed">
